@@ -11,10 +11,5 @@ public class KokkTraad implements Runnable {
 	@Override
 	public void run() {
 
-		if (msg.getContent().equals("quit")) {
-			showMessageDialog(null, "Du har nå avsluttet programmet.");
-			System.exit(0);
-			running = false;
-		}
 	}
 }

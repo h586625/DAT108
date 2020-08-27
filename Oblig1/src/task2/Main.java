@@ -22,7 +22,10 @@ public class Main {
 		//
 		//		printlnTraad.start();
 		//		giVerdiTraad.start();
+
+		Thread hamburgerBane = new Rutsjebane();
+
+		hamburgerBane.start();
+
 	}
 }
-
-
