@@ -7,7 +7,7 @@ public class Rutsjebane {
 
 	private int plass;
 	private int antall = 0;
-	private int antallAktive = 0;
+	private int elementNr = 0;
 	private static Queue<Integer> elementer;
 
 	public Rutsjebane() {
@@ -38,12 +38,8 @@ public class Rutsjebane {
 		this.antall = antall;
 	}
 
-	public int getAntallAktive() {
-		return antallAktive;
-	}
-
-	public void setAntallAktive(int antallAktive) {
-		this.antallAktive = antallAktive;
+	public int getElementNr() {
+		return elementNr;
 	}
 
 	public Queue<Integer> getElementer() {
@@ -52,7 +48,7 @@ public class Rutsjebane {
 
 	public synchronized boolean leggTil() {
 		if (!erFull()) {
-			elementer.add(++antallAktive);
+			elementer.add(++elementNr);
 			antall++;
 			return true;
 		} else {
