@@ -2,74 +2,70 @@ package task2;
 
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Random;
 
-public class Rutsjebane extends Thread {
+public class Rutsjebane {
 
 	private int plass;
 	private int antall = 0;
-	private static Queue<Integer> hamburgere;
+	private int antallAktive = 0;
+	private static Queue<Integer> elementer;
 
 	public Rutsjebane() {
-		this.plass = 5;
-		hamburgere = new LinkedList<Integer>();
+		plass = 5;
+		elementer = new LinkedList<Integer>();
 	}
 
 	public Rutsjebane(int plass) {
 		this.plass = plass;
-		hamburgere = new LinkedList<Integer>();
+		elementer = new LinkedList<Integer>();
 	}
 
-	public synchronized void printHamburgere() {
-		for (Integer item: hamburgere) {
-			System.out.println(item);
+	public void printElementer() {
+		System.out.print("[");
+
+		for (Integer el : elementer) {
+			System.out.print("(" + el + ")");
 		}
+
+		System.out.println("]");
 	}
 
-	public int getAntallBurgere(int antall) {
+	public int getAntall() {
 		return antall;
 	}
 
-	public void setAntallBurgere(int antall) {
-		this.antallBurgere = antall;
+	public void setAntall(int antall) {
+		this.antall = antall;
 	}
 
-	public synchronized Queue<Integer>() getHamburgere() {
-		return hamburgere;
+	public int getAntallAktive() {
+		return antallAktive;
 	}
 
-
-
-	@Override
-	public void run() {
-		printHamburgere();
+	public void setAntallAktive(int antallAktive) {
+		this.antallAktive = antallAktive;
 	}
 
-	public synchronized void leggTilHamburger(Integer hamburger) throws InterruptedException {
-		Random rand = new Random();
-		int betweenTwoAndSixSeconds = rand.nextInt((2000) + 1) + 4000;
+	public Queue<Integer> getElementer() {
+		return elementer;
+	}
+
+	public synchronized boolean leggTil() {
 		if (!erFull()) {
-			System.out.println("Kokk1 legger på hamburger (" + antall + ") => [(1)]");
-			sleep(betweenTwoAndSixSeconds);
-			hamburgere.add(hamburger);
+			elementer.add(++antallAktive);
 			antall++;
-			notifyAll();
+			return true;
 		} else {
-			System.out.println("### Kokk2 er klar med en hamburger, men rutsjebanen er full. Venter! ###");
+			return false;
 		}
 	}
 
-	public synchronized void fjernHamburger(Integer hamburger) throws InterruptedException {
-		Random rand = new Random();
-		int betweenTwoAndSixSeconds = rand.nextInt((2000) + 1) + 4000;
+	public synchronized int fjern() {
 		if (!erTom()) {
-			System.out.println("Servitør2 tar av hamburger (1) => [");
-			sleep(betweenTwoAndSixSeconds);
-			hamburgere.remove(hamburger);
 			antall--;
-			notifyAll();
+			return elementer.remove();
 		} else {
-			System.out.println("### Servitør2 vil ta en hamburger, men rutsjebanen er tom. Venter! ###");
+			return -1;
 		}
 	}
 
@@ -78,6 +74,6 @@ public class Rutsjebane extends Thread {
 	}
 
 	public boolean erFull() {
-		return plass == hamburgere.size();
+		return plass == elementer.size();
 	}
 }
