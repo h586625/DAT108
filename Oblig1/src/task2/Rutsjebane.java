@@ -22,8 +22,11 @@ public class Rutsjebane {
 
 	public void printElementer() {
 		System.out.print("[");
+		int i = 0;
 
 		for (Integer el : elementer) {
+			i++;
+			if (i > 1) System.out.print(", ");
 			System.out.print("(" + el + ")");
 		}
 

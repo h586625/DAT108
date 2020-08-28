@@ -31,12 +31,12 @@ public class KokkRunnable implements Runnable {
 				while (!lagtTil) {
 					if (!hamburgerKoe.erFull()) {
 						lagtTil = hamburgerKoe.leggTil();
-						System.out.print(getNavn() + " har laget burger: [" + hamburgerKoe.getAntall() + "] ");
+						System.out.print(getNavn() + " har laget burger:\t\t(" + hamburgerKoe.getAntall() + ") => ");
 						hamburgerKoe.printElementer();
 						hamburgerKoe.notifyAll();
 					} else {
 						try {
-							System.out.println("Køen er nå full! Kokken " + getNavn() + " venter");
+							System.out.println("### Køen er nå full! Kokken " + getNavn() + " venter ###");
 							hamburgerKoe.wait();
 						} catch (InterruptedException e) {
 							e.printStackTrace();

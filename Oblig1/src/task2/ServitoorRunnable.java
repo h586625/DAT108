@@ -31,14 +31,14 @@ public class ServitoorRunnable implements Runnable{
 					if (!hamburgerKoe.erTom()) {
 						int burger = hamburgerKoe.fjern();
 						if(burger > -1) {
-							System.out.print(getNavn() + " har hentet burger: [" + burger + "] ");
+							System.out.print(getNavn() + " har hentet burger:\t\t(" + burger + ") => ");
 							hamburgerKoe.printElementer();
 							hamburgerKoe.notifyAll();
 							hentet = true;
 						}
 					} else {
 						try {
-							System.out.println("Køen er nå full! Kokken " + getNavn() + " venter");
+							System.out.println("### Køen er nå full! Kokken " + getNavn() + " venter ###");
 							hamburgerKoe.wait();
 						} catch (InterruptedException e) {
 							e.printStackTrace();
