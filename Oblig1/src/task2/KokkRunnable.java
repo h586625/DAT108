@@ -2,13 +2,13 @@ package task2;
 
 import java.util.Random;
 
-public class KokkTraad extends Thread {
+public class KokkRunnable implements Runnable {
 
 	private Kokk kokk;
 	private Rutsjebane hamburgerKoe;
 	Random rand = new Random();
 
-	public KokkTraad(Rutsjebane hamburgerKoe, Kokk kokk) {
+	public KokkRunnable(Rutsjebane hamburgerKoe, Kokk kokk) {
 		this.kokk = kokk;
 		this.hamburgerKoe = hamburgerKoe;
 	}
@@ -23,7 +23,7 @@ public class KokkTraad extends Thread {
 			int randSeconds = rand.nextInt(4000);
 			boolean lagtTil = false;
 			try {
-				sleep(randSeconds+2000);
+				Thread.sleep(randSeconds+2000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}

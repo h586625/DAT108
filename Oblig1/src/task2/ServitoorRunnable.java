@@ -2,12 +2,12 @@ package task2;
 
 import java.util.Random;
 
-public class ServitoorTraad extends Thread {
+public class ServitoorRunnable implements Runnable{
 	private Servitoor servitoor;
 	private Rutsjebane hamburgerKoe;
 	Random rand = new Random();
 
-	public ServitoorTraad(Rutsjebane hamburgerKoe, Servitoor servitoor) {
+	public ServitoorRunnable(Rutsjebane hamburgerKoe, Servitoor servitoor) {
 		this.servitoor = servitoor;
 		this.hamburgerKoe = hamburgerKoe;
 	}
@@ -22,7 +22,7 @@ public class ServitoorTraad extends Thread {
 			int randSeconds = rand.nextInt(4000);
 			boolean hentet = false;
 			try {
-				sleep(randSeconds+2000);
+				Thread.sleep(randSeconds+2000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
