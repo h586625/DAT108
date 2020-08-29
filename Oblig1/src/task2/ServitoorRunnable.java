@@ -13,7 +13,7 @@ public class ServitoorRunnable implements Runnable{
 	}
 
 	@Override
-	public synchronized void run() {
+	public void run() {
 		while (true) {
 			int randSeconds = rand.nextInt(4000);
 			boolean hentet = false;
