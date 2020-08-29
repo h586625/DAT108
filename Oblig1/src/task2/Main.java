@@ -7,19 +7,19 @@ public class Main {
 		Rutsjebane hamburgerBane = new Rutsjebane();
 
 		Thread kokk1 = new Thread(
-				new KokkRunnable(hamburgerBane, new Kokk("Geralt"))
+				new KokkRunnable(hamburgerBane, new Kokk("Blom"))
 				);
 		Thread kokk2 = new Thread(
-				new KokkRunnable(hamburgerBane, new Kokk("Lars"))
+				new KokkRunnable(hamburgerBane, new Kokk("Isabella"))
 				);
 		Thread kokk3 = new Thread(
-				new KokkRunnable(hamburgerBane, new Kokk("Bob"))
+				new KokkRunnable(hamburgerBane, new Kokk("Trond"))
 				);
 		Thread servitoor1 = new Thread(
-				new ServitoorRunnable(hamburgerBane, new Servitoor("Triss"))
+				new ServitoorRunnable(hamburgerBane, new Servitoor("Cathrine"))
 				);
 		Thread servitoor2 = new Thread(
-				new ServitoorRunnable(hamburgerBane, new Servitoor("Cathrine"))
+				new ServitoorRunnable(hamburgerBane, new Servitoor("Ida"))
 				);
 
 		System.out.println("Hamburger køen begynner!");
