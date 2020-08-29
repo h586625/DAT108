@@ -38,7 +38,7 @@ public class ServitoorRunnable implements Runnable{
 						}
 					} else {
 						try {
-							System.out.println("### Køen er nå full! Kokken " + getNavn() + " venter ###");
+							System.out.println("### Køen er nå full! Kokken " + hamburgerKoe.getElementNr() + " venter ###");
 							hamburgerKoe.wait();
 						} catch (InterruptedException e) {
 							e.printStackTrace();

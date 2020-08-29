@@ -31,7 +31,7 @@ public class KokkRunnable implements Runnable {
 				while (!lagtTil) {
 					if (!hamburgerKoe.erFull()) {
 						lagtTil = hamburgerKoe.leggTil();
-						System.out.print(getNavn() + " har laget burger:\t\t(" + hamburgerKoe.getAntall() + ") => ");
+						System.out.print(getNavn() + " har laget burger:\t\t(" + hamburgerKoe.getElementNr() + ") => ");
 						hamburgerKoe.printElementer();
 						hamburgerKoe.notifyAll();
 					} else {

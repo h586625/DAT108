@@ -5,19 +5,16 @@ import java.util.Queue;
 
 public class Rutsjebane {
 
-	private int plass;
-	private int antall = 0;
+	private int maksPlass;
 	private int elementNr = 0;
-	private static Queue<Integer> elementer;
+	private static Queue<Integer> elementer = new LinkedList<Integer>();
 
 	public Rutsjebane() {
-		plass = 5;
-		elementer = new LinkedList<Integer>();
+		maksPlass = 5;
 	}
 
-	public Rutsjebane(int plass) {
-		this.plass = plass;
-		elementer = new LinkedList<Integer>();
+	public Rutsjebane(int maksPlass) {
+		this.maksPlass = maksPlass;
 	}
 
 	public void printElementer() {
@@ -34,11 +31,7 @@ public class Rutsjebane {
 	}
 
 	public int getAntall() {
-		return antall;
-	}
-
-	public void setAntall(int antall) {
-		this.antall = antall;
+		return elementer.size();
 	}
 
 	public int getElementNr() {
@@ -52,7 +45,6 @@ public class Rutsjebane {
 	public synchronized boolean leggTil() {
 		if (!erFull()) {
 			elementer.add(++elementNr);
-			antall++;
 			return true;
 		} else {
 			return false;
@@ -61,7 +53,6 @@ public class Rutsjebane {
 
 	public synchronized int fjern() {
 		if (!erTom()) {
-			antall--;
 			return elementer.remove();
 		} else {
 			return -1;
@@ -69,10 +60,10 @@ public class Rutsjebane {
 	}
 
 	public boolean erTom() {
-		return plass == 0;
+		return getAntall() == 0;
 	}
 
 	public boolean erFull() {
-		return plass == elementer.size();
+		return maksPlass == getAntall();
 	}
 }
