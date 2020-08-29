@@ -3,6 +3,12 @@ package task2;
 import java.util.LinkedList;
 import java.util.Queue;
 
+/**
+ *
+ * Solving this task without a BlockingQueue
+ * In task3, this self-made queue will be replaced.
+ *
+ */
 public class Rutsjebane {
 
 	private int maksPlass;
