@@ -12,10 +12,6 @@ public class ServitoorRunnable implements Runnable{
 		this.hamburgerKoe = hamburgerKoe;
 	}
 
-	public String getNavn() {
-		return servitoor.getNavn();
-	}
-
 	@Override
 	public synchronized void run() {
 		while (true) {
@@ -31,14 +27,14 @@ public class ServitoorRunnable implements Runnable{
 					if (!hamburgerKoe.erTom()) {
 						int burger = hamburgerKoe.fjern();
 						if(burger > -1) {
-							System.out.print(getNavn() + " har hentet burger:\t\t(" + burger + ") => ");
+							System.out.print(servitoor.getNavn() + " har hentet burger:\t\t(" + burger + ") => ");
 							hamburgerKoe.printElementer();
 							hamburgerKoe.notifyAll();
 							hentet = true;
 						}
 					} else {
 						try {
-							System.out.println("### Køen er nå full! Kokken " + hamburgerKoe.getElementNr() + " venter ###");
+							System.out.println("### Køen er nå tom! Servitøren " + servitoor.getNavn() + " venter ###");
 							hamburgerKoe.wait();
 						} catch (InterruptedException e) {
 							e.printStackTrace();

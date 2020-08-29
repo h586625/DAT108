@@ -13,10 +13,6 @@ public class KokkRunnable implements Runnable {
 		this.hamburgerKoe = hamburgerKoe;
 	}
 
-	public String getNavn() {
-		return kokk.getNavn();
-	}
-
 	@Override
 	public synchronized void run() {
 		while (true) {
@@ -31,12 +27,12 @@ public class KokkRunnable implements Runnable {
 				while (!lagtTil) {
 					if (!hamburgerKoe.erFull()) {
 						lagtTil = hamburgerKoe.leggTil();
-						System.out.print(getNavn() + " har laget burger:\t\t(" + hamburgerKoe.getElementNr() + ") => ");
+						System.out.print(kokk.getNavn() + " har laget burger:\t\t(" + hamburgerKoe.getElementNr() + ") => ");
 						hamburgerKoe.printElementer();
 						hamburgerKoe.notifyAll();
 					} else {
 						try {
-							System.out.println("### Køen er nå full! Kokken " + getNavn() + " venter ###");
+							System.out.println("### Køen er nå full! Kokken " + kokk.getNavn() + " venter ###");
 							hamburgerKoe.wait();
 						} catch (InterruptedException e) {
 							e.printStackTrace();
