@@ -5,7 +5,6 @@ import java.util.concurrent.LinkedBlockingQueue;
 
 public class Rutsjebane {
 
-	private int maksPlass;
 	private int elementNr = 0;
 	private static LinkedBlockingQueue<Integer> elementer;
 
@@ -17,17 +16,16 @@ public class Rutsjebane {
 		elementer = new LinkedBlockingQueue<Integer>(maksPlass);
 	}
 
-	public void printElementer() {
-		System.out.print("[");
+	public String elementerToString() {
+		String str = "[";
 		int i = 0;
-
 		for (Integer el : elementer) {
 			i++;
-			if (i > 1) System.out.print(", ");
-			System.out.print("(" + el + ")");
+			if (i > 1) str += (", ");
+			str += "(" + el + ")";
 		}
-
-		System.out.println("]");
+		str += "]";
+		return str;
 	}
 
 	public int getAntall() {
@@ -42,30 +40,22 @@ public class Rutsjebane {
 		return elementer;
 	}
 
-	public boolean leggTil() {
-		if (!erFull()) {
-			return elementer.offer(++elementNr);
-		} else {
-			return false;
+	public int leggTil() {
+		try {
+			elementer.put(++elementNr);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
+		return elementNr;
 	}
 
 	public int fjern() {
-		if (!erTom()) {
-			try {
-				return elementer.take();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+		try {
+			return elementer.take();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 		return -1;
 	}
 
-	public boolean erTom() {
-		return getAntall() == 0;
-	}
-
-	public boolean erFull() {
-		return maksPlass == getAntall();
-	}
 }

@@ -16,26 +16,17 @@ public class ServitoorRunnable implements Runnable{
 	public void run() {
 		while (true) {
 			int randSeconds = rand.nextInt(4000);
-			boolean hentet = false;
 			try {
 				Thread.sleep(randSeconds+2000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			synchronized(hamburgerKoe) {
-				while (!hentet) {
-					if (!hamburgerKoe.erTom()) {
-						int burger = hamburgerKoe.fjern();
-						if(burger > -1) {
-							System.out.print(servitoor.getNavn() + " har hentet burger:\t\t(" + burger + ") => ");
-							hamburgerKoe.printElementer();
-							hentet = true;
-						}
-					} else {
-						System.out.println("### Køen er nå tom! Servitøren " + servitoor.getNavn() + " venter ###");
-					}
-				}
-			} // synchronized()
+			if (hamburgerKoe.getAntall() > 0) {
+				System.out.println(
+						servitoor.getNavn() + " har hentet burger:\t\t(" + hamburgerKoe.fjern() + ") => " +
+								hamburgerKoe.elementerToString()
+						);
+			}
 		}
 	} // run()
 }
