@@ -18,6 +18,11 @@ public class Registrer extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	}
+
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html; charset=UTF-8");
 
 		String fornavn = request.getParameter("fornavn");
@@ -29,19 +34,24 @@ public class Registrer extends HttpServlet {
 		String dato = simpleDateFormat.format(new Date());
 
 		PrintWriter out = response.getWriter();
-		System.out.println(fornavn + " " + etternavn);
+
+		out.println("<!doctype html>");
+		out.println("<html>");
+		out.println("<head>");
+		out.println("<meta charset=\"utf-8\">");
+		out.println("<title>Kvittering</title>");
+		out.println("</head>");
+		out.println("<body>");
+
 		if (fornavn == null || etternavn == null || fornavn == "" || etternavn == "") {
 			out.println("Hei! Du har ikke fylt ut registreringsskjemaet.");
 		} else {
 			out.println("Hei, " + fornavn + " " + etternavn);
 			out.println("<p>Din registrering er mottatt " + dato + "</p>");
 		}
-	}
 
-	@Override
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		out.println("</body>");
+		out.println("</html>");
 	}
 
 }
