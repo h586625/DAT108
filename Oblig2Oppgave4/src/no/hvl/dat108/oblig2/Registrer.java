@@ -28,10 +28,14 @@ public class Registrer extends HttpServlet {
 		String fornavn = request.getParameter("fornavn");
 		String etternavn = request.getParameter("etternavn");
 
-		String pattern = "dd MMMMM yyyy HH:mm";
+		String pattern = "dd. MMM yyyy 'kl. 'HH:mm";
 		SimpleDateFormat simpleDateFormat =
 				new SimpleDateFormat(pattern, new Locale("nb", "NO"));
 		String dato = simpleDateFormat.format(new Date());
+
+		// Alternative way:
+		//		String dato = LocalDateTime.now().format(
+		//				DateTimeFormatter.ofPattern("dd. MMM yyyy 'kl. 'HH:mm"));
 
 		PrintWriter out = response.getWriter();
 
