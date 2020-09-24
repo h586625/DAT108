@@ -15,9 +15,9 @@ public class Oppg3 {
 		List<Ansatt> ansatte = Arrays.asList(
 				new Ansatt("Trond", "Hauge", Kjonn.MANN, "Spillutvikler sjef", 800_000),
 				new Ansatt("Ida", "Mjelde", Kjonn.KVINNE, "Jetpack-hero", 10_000_000),
-				new Ansatt("Isabella", "Nesheim", Kjonn.KVINNE, "Biologiprogrammerer sjef", 950_000),
-				new Ansatt("Thomas", "Blom", Kjonn.MANN, "Kinogud", 300_0000),
-				new Ansatt("Cathrine", "Bjerke Monsen", Kjonn.KVINNE, "Webutvikler", 600_000)
+				new Ansatt("Isabella", "Nesheim", Kjonn.KVINNE, "Virtuell bonde", 950_000),
+				new Ansatt("Thomas", "Tran", Kjonn.MANN, "Kinogud", 3_000_000),
+				new Ansatt("Cathrine", "Bjerke Monsen", Kjonn.KVINNE, "Webutvikler", 800_000)
 				);
 
 		// a)
@@ -74,7 +74,7 @@ public class Oppg3 {
 		String ansatteSomEnStreng = ansatte.stream()
 				.map(a -> a.toString() + "\n").reduce("", String::concat);
 		System.out.println("Ansatte som en streng, uten løkke:");
-		System.out.println(ansatteSomEnStreng + "\n");
+		System.out.println(ansatteSomEnStreng);
 
 		// g)
 		Optional<Ansatt> ansattMedLavestlonn = ansatte.
@@ -92,6 +92,7 @@ public class Oppg3 {
 				.mapToInt(Integer::intValue)
 				.filter(a -> a%3 == 0 || a%5 == 0)
 				.sum();
+		System.out.println("Summen av alle heltall i [1, 1000> som er delelig med 3 eller 5");
 		System.out.println(heltallSum);
 	}
 }
