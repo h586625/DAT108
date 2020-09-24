@@ -71,7 +71,10 @@ public class Oppg3 {
 		System.out.println(finnesAnsatteSomTjenerMerEnn800k + "\n");
 
 		// f)
-		//????
+		String ansatteSomEnStreng = ansatte.stream()
+				.map(a -> a.toString() + "\n").reduce("", String::concat);
+		System.out.println("Ansatte som en streng, uten løkke:");
+		System.out.println(ansatteSomEnStreng + "\n");
 
 		// g)
 		Optional<Ansatt> ansattMedLavestlonn = ansatte.
