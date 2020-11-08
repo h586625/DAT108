@@ -1,0 +1,61 @@
+melding {
+    color: red;
+}
+
+input[type="text"], input[type="password"] {
+     border-radius: 5px;
+     border-width: 1px;
+}
+
+body {
+    margin: 10px;
+}
+
+button {
+	margin-top: 15px;
+}
+
+.paamelding-input input {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	border: 1px solid;
+}
+
+.pw-info {
+	border: 1px solid;	
+}
+
+.melding {
+	color: red;
+}
+
+label, .columnfirst {
+    text-align: right;
+}
+
+button {
+    grid-column: 1/3;
+}
+
+div[data-info] {
+	margin: 10px 0;
+	border: 1px solid red;
+	padding: 0;
+}
+
+div[data-info] p {
+	margin: 0;
+	padding: 5px;
+}
+
+/* Christoffer */
+
+.pw-info {
+	display: inline-block;
+	border-radius: 50%;
+	padding: 6px;
+	margin-left: 10px;
+    width: 15px;
+    text-align: center;
+    background: #ccc;
+}
