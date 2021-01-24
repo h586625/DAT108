@@ -27,7 +27,7 @@ public class DeltagerlisteServlet extends HttpServlet {
 
 		HttpSession sesjon = request.getSession(false);
 
-		if(sesjon == null || sesjon.getAttribute("deltager") == null) {
+		if (sesjon == null || sesjon.getAttribute("deltager") == null) {
 			response.sendRedirect("innlogging?unauthorized");
 		} else {
 

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Sidetittel</title>
+</head>
+<body>
+	<h1>Sidetittel</h1>
+
+    <div id="root">
+		<form method="post" class="form">
+	        <fieldset>
+	          <div class="input">
+		          <label for="tittel">Fornavn:</label>
+		          <input type="text" name="tittel" id="tittel" value="tittel" required />
+		          <span class="melding"></span>
+			  </div>
+			  
+			  <p />
+			  
+			  <div class="input">
+		          <label for="passord">Passord:</label> 
+		          <input type="password" name="passord" id="passord" value="" required />
+		          <span class="melding"></span>
+	          </div>
+	          
+			  <p />
+	
+			  <div class="input">
+		          <span class="columnfirst">Kjønn:</span>
+		          <span data-kjonn>
+		            <label><input type="radio" name="kjonn" value="mann" checked="checked" />mann</label>
+		            <label><input type="radio" name="kjonn" value="kvinne" />kvinne</label>
+		          </span>
+		          <span class="melding"></span>
+	          </div>
+	          
+	          <p />
+	          
+	          <input type="checkbox" id="yes" name="yes">
+	          <input type="checkbox" id="no" name="no">
+	          
+	          <input type="hidden" name="min_id" value="min.id" />
+			  <p />
+			  <textarea name="tekst" rows="5" cols="40"></textarea>
+	
+	          <button type="submit">Meld meg på</button>
+	        </fieldset>
+	      </form>
+	  </div>
+</body>
+</html>

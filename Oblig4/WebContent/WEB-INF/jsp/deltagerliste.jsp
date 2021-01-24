@@ -21,27 +21,26 @@
 		</tr>
 		
 		<c:forEach items="${deltagere}" var="d">
-		<c:choose>
-		<c:when test="${deltager.mobil eq d.mobil}">
-			<tr bgcolor="#aaffaa">
-		</c:when>
-		<c:otherwise>
-		<tr bgcolor="#ffffff">
-		</c:otherwise>
-		</c:choose>
-		
-		<c:choose>
-		<c:when test="${d.kjonn eq 'kvinne'}">
-		 <td align="center">&#9792;</td>
-		</c:when>
-		<c:when test="${d.kjonn eq 'mann'}">
-		 <td align="center">&#9794;</td>
-		</c:when>
-		</c:choose>
-		
-		<td>${d.fornavn} ${d.etternavn}</td>
-		<td>${d.mobil}</td>		
-		
+			<c:choose>
+			<c:when test="${deltager.mobil eq d.mobil}">
+				<tr bgcolor="#aaffaa">
+			</c:when>
+			<c:otherwise>
+			<tr bgcolor="#ffffff">
+			</c:otherwise>
+			</c:choose>
+			
+			<c:choose>
+			<c:when test="${d.kjonn eq 'kvinne'}">
+			 <td align="center">&#9792;</td>
+			</c:when>
+			<c:when test="${d.kjonn eq 'mann'}">
+			 <td align="center">&#9794;</td>
+			</c:when>
+			</c:choose>
+			
+			<td>${d.fornavn} ${d.etternavn}</td>
+			<td>${d.mobil}</td>		
 		</c:forEach>
 	</table>
 	<p>
